@@ -40,9 +40,12 @@ cd ..
 export CC=mpiicc
 export FC=mpiifort
 export CXX=mpiicpc
+export CFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
+export CXXFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
+export FFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
 # export CXXFLAGS=-03
  cd hdf5*
-./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran --with-default-api-version=v18
+./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran  --enable-cxx  --enable-optimization=high --with-default-api-version=v18
 make
 make install
 cd ..
