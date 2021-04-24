@@ -40,23 +40,24 @@ cd ..
 export CC=mpiicc
 export FC=mpiifort
 export CXX=mpiicpc
+# export CXXFLAGS=-03
  cd hdf5*
 ./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran --with-default-api-version=v18
 make
 make install
 cd ..
 cd pnetcdf*
-CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/mpich/include" LDFLAGS=-L$$LIBS/hdf5/lib/ ./configure --prefix=$LIBS/pnetcdf --enable-shared
+CPPFLAGS="-I$LIBS/hdf5/include/" LDFLAGS=-L$LIBS/hdf5/lib/ ./configure --prefix=$LIBS/pnetcdf 
 make
 make install
 cd ..
 cd netcdf-c*
-CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/mpich/include -I$LIBS/pnetcdf/include" LDFLAGS="-L$LIBS/hdf5/lib/ -L$LIBS/pnetcdf/lib" ./configure --prefix=$LIBS/netcdf --enable-netcdf-4 --enable-pnetcdf
+CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/pnetcdf/include" LDFLAGS="-L$LIBS/hdf5/lib/ -L$LIBS/pnetcdf/lib" ./configure --prefix=$LIBS/netcdf --enable-netcdf-4 --enable-pnetcdf
 make
 make install
 cd ..
 cd netcdf-f*
-FC=mpif90 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBS/netcdf/lib CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/netcdf/include" LDFLAGS="-L$LIBS/hdf5/lib/ -L$LIBS/netcdf/lib" ./configure --prefix=$LIBS/netcdf --enable-shared
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBS/netcdf/lib CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/netcdf/include" LDFLAGS="-L$LIBS/hdf5/lib/ -L$LIBS/netcdf/lib" ./configure --prefix=$LIBS/netcdf 
 make
 make install
 cd ..
