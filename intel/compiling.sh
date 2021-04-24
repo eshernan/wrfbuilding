@@ -37,6 +37,8 @@ cd ..
 # cd ..
 # export  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SHARED/libs/mpich/lib
 # export PATH=$PATH:$SHARED/libs/mpich/bin
+export CC=mpiicc
+export FC=mpiifort
  cd hdf5*
 ./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran --enable-shared
 make -j 20
