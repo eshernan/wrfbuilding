@@ -1,5 +1,5 @@
 #!/bin/bash
-source download.sh
+source ../download.sh
 SHARED=/home/ehernandez/WRF_BASE
 INSTALLERS=$SHARED/installer
 export SHARED INSTALLERS
