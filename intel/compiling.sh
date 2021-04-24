@@ -13,8 +13,8 @@ export CXX=icpc
 # export CC=gcc
 # export FC=gfortran
 # export CXX=g++
-
-
+cd ~
+source .bash_intel20
 cd $INSTALLERS
 cd zlib*
 ./configure --prefix=$LIBS/zlib
