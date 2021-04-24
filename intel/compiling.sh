@@ -52,9 +52,9 @@ cd ..
 export CC=mpiicc
 export FC=mpiifort
 export CXX=mpiicpc
-export CFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
-export CXXFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
-export FFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
+#export CFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
+#export CXXFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
+#export FFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
 # export CXXFLAGS=-03
 
 echo "-------------------------------------------------"
@@ -71,13 +71,9 @@ echo "----------- Compiling PNETCDF  ------------------"
 echo "-------------------------------------------------"
 
 cd pnetcdf*
-CPPFLAGS="-I$LIBS/hdf5/include/" LDFLAGS=-L$LIBS/hdf5/lib/ ./configure --prefix=$LIBS/pnetcdf 
+CPPFLAGS="-I$LIBS/hdf5/include/" LDFLAGS=-L$LIBS/hdf5/lib/ ./configure --prefix=$LIBS/pnetcdf  --enable-shared --enable-static
 make
 make install
-
-export CC=icc
-export FC=ifort
-export CXX=icpc
 cd ..
 echo "-------------------------------------------------"
 echo "----------- Compiling NETCDF-C  -----------------"
@@ -87,6 +83,7 @@ CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/pnetcdf/include" LDFLAGS="-L$LIBS/hdf5/l
 make
 make install
 cd ..
+
 echo "-------------------------------------------------"
 echo "----------- Compiling NETCDF-FORTRAN  -----------"
 echo "-------------------------------------------------"
