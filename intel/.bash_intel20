@@ -1,0 +1,14 @@
+#!/bin/bash
+#For intel Xeon 
+unset LD_LIBRARY_PATH
+export BASE_COMPILER=/home/ehernandez/intel
+source $BASE_COMPILER/parallel_studio_xe_2020/psxevars.sh intel64
+source $BASE_COMPILER/mkl/bin/mklvars.sh intel64
+source $BASE_COMPILER/inspector_2020/inspxe-vars.sh intel64
+source $BASE_COMPILER/vtune_profiler/amplxe-vars.sh intel64
+source $BASE_COMPILER/advisor/advixe-vars.sh intel64
+source $BASE_COMPILER/compilers_and_libraries/linux/mpi/intel64/bin/mpivars.sh intel64
+source $BASE_COMPILER/compilers_and_libraries/linux/bin/compilervars.sh intel64
+
+ulimit -s unlimited
+#
