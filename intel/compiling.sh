@@ -41,8 +41,8 @@ export CC=mpiicc
 export FC=mpiifort
 export CXX=mpiicpc
  cd hdf5*
-./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran --enable-shared --with-default-api-version=v18
-make -j 20
+./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran --with-default-api-version=v18
+make
 make install
 cd ..
 cd pnetcdf*
