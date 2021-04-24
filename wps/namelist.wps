@@ -1,0 +1,44 @@
+
+&share
+ wrf_core = 'ARW',
+ max_dom = 1,
+ start_date = '2018-05-09_00:00:00','2018-05-09_00:00:00',
+ end_date    = '2018-05-11_06:00:00','2018-05-11_06:00:00',
+ interval_seconds = 10800,
+ io_form_geogrid = 2,
+/
+
+&geogrid
+ parent_id         = 1,1,
+ parent_grid_ratio = 1,3,
+ i_parent_start    = 1,59,
+ j_parent_start    = 1,52,
+ e_we          = 262,385,
+ e_sn          = 355,733,
+ geog_data_res = '30s','30s',
+ dx = 4000,
+ dy = 4000,
+ map_proj =  'mercator',
+ ref_lat   = 7.342,
+ ref_lon   = -74.411,
+ truelat1  = 7.342,
+ truelat2  = 0,
+ stand_lon = -74.411,
+ geog_data_path = '/global/scratch/users/ejhernandezb/geo_data/WPS_GEOG/',
+ opt_geogrid_tbl_path = '/global/scratch/users/ejhernandezb/WPS/geogrid/',
+ ref_x = 131.0,
+ ref_y = 177.5,
+/
+	
+&ungrib
+ out_format = 'WPS',
+ prefix = 'FILE',
+/
+
+&metgrid
+ fg_name = 'FILE',
+ io_form_metgrid = 2,
+ opt_output_from_metgrid_path = './',
+ opt_metgrid_tbl_path = './',
+/
+

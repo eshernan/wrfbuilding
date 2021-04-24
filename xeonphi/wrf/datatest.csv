@@ -1,0 +1,9 @@
+M=56240
+NB=1024
+Q=1
+C=57
+NP=1
+CORESMKL=57
+CORESCPU=16c
+THREADSMKL=4t
+AFFINITY=verbose,granularity=fine,compact
