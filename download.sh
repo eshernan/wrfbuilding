@@ -20,4 +20,12 @@ tar -zxvf libpng-1.2.50.tar.gz
 tar -zxvf zlib-1.2.7.tar.gz
 tar -zxvf pnetcdf-1.12.2.tar.gz
 #tar -zxvf mpich-3.0.4.tar.gz
-echo " .... done ...."
+echo " .... required libs download sucessful ...."
+cd $SHARED
+git clone https://github.com/wrf-model/WPS.git
+git clone https://github.com/wrf-model/WRF.git
+echo " .... WRF and WPS download sucessful ...."
+mkdir GEO_STATIC_DATA
+cd GEO_STATIC_DATA
+wget https://www2.mmm.ucar.edu/wrf/src/wps_files/geog_high_res_mandatory.tar.gz
+

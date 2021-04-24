@@ -98,9 +98,9 @@ cd ..
 # make
 # make install
 # cd ..
-export NETCDF=$LIBS/netcdf/
+export NETCDF=$LIBS/netcdf
 export HDF5=$LIBS/hdf5
 export PHDF5=$LIBS/hdf5
 export JASPERLIB=$LIBS/jasper/lib
 export JASPERINC=$LIBS/jasper/include
-export PATH=$PATH:$LIBS/netcdf/bin/
+export PATH=$PATH:$LIBS/netcdf/bin
