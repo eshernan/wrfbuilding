@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../download.sh
+#source ../download.sh
 SHARED=/home/ehernandez/WRF_BASE
 LIBS=$SHARED/libs
 INSTALLERS=$SHARED/installer
@@ -21,7 +21,7 @@ cd zlib*
 make
 make install
 cd ..
-cd lipng*
+cd libpng*
 ./configure --prefix=$LIBS/libpng #--build=arm
 make
 make install
@@ -38,7 +38,7 @@ cd ..
 # cd ..
 # export  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SHARED/libs/mpich/lib
 # export PATH=$PATH:$SHARED/libs/mpich/bin
-# cd hdf5*
+ cd hdf5*
 ./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran --enable-shared
 make -j 20
 make install
