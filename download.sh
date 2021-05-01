@@ -28,7 +28,10 @@ echo " .... WRF and WPS download sucessful ...."
 mkdir GEO_STATIC_DATA
 cd GEO_STATIC_DATA
 export GEO_STATIC_DATA=$PWD
-wget https://www2.mmm.ucar.edu/wrf/src/wps_files/geog_high_res_mandatory.tar.gz
+wget --no-check-certificate  https://www2.mmm.ucar.edu/wrf/src/wps_files/geog_high_res_mandatory.tar.gz
+
 tar -zxvf geog_high_res_mandatory.tar.gz
+cd ..
+
 
 
