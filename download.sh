@@ -1,7 +1,7 @@
 #!/bin/bash
 #If you have a valid license of Intel Parallel Studio 
 # wget https://registrationcenter-download.intel.com/akdlm/irc_nas/tec/17113/parallel_studio_xe_2020_update4_cluster_edition.tgz
-INSTALLER_PATH=/home/ehernandez/WRF_BASE/installer
+source setup_env.sh
 cd $INSTALLER_PATH
 wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.8.0.tar.gz
 wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.3.tar.gz
@@ -27,5 +27,8 @@ git clone https://github.com/wrf-model/WRF.git
 echo " .... WRF and WPS download sucessful ...."
 mkdir GEO_STATIC_DATA
 cd GEO_STATIC_DATA
+export GEO_STATIC_DATA=$PWD
 wget https://www2.mmm.ucar.edu/wrf/src/wps_files/geog_high_res_mandatory.tar.gz
+tar -zxvf geog_high_res_mandatory.tar.gz
+
 
