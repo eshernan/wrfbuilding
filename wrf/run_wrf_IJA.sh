@@ -7,20 +7,20 @@ export BASE_PATH=/fsx/WRF
 export CC=icc
 export FC=ifort
 export CXX=icpc
-export LD_LIBRARY_PATH=$BASE_PATH/libs/netcdf/lib:$BASE_PATH/libs/hdf5/lib/:$LD_LIBRARY_PATH
-export LIBRARY_PATH=$BASE_PATH/libs/netcdf/lib:$LIBRARY_PATH
-export CPATH=$BASE_PATH/libs/netcdf/lib:$CPATH
-export NETCDF=$BASE_PATH/libs/netcdf
-export CPPFLAGS=-I$BASE_PATH/libs/netcdf/include:-I$BASE_PATH/libs/hdf5/include:-I$BASE_PATH/libs/zlib/include:-I$BASE_PATH/libs/libpng/include
-export LDFLAGS=-L$BASE_PATH/libs/netcdf/lib:-L$BASE_PATH/libs/hdf5/lib:-L$BASE_PATH/libs/zlib/lib:-L$BASE_PATH/libs/libpng/libs
-PATH=$BASE_PATH/libs/mpich/bin:$PATH ; export PATH
-export LD_LIBRARY_PATH=$BASE_PATH/libs/mpich/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LIBS/netcdf/lib:$LIBS/hdf5/lib/:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$LIBS/netcdf/lib:$LIBRARY_PATH
+export CPATH=$LIBS/netcdf/lib:$CPATH
+export NETCDF=$LIBS/netcdf
+export CPPFLAGS=-I$LIBS/netcdf/include:-I$LIBS/hdf5/include:-I$LIBS/zlib/include:-I$LIBS/libpng/include
+export LDFLAGS=-L$LIBS/netcdf/lib:-L$LIBS/hdf5/lib:-L$LIBS/zlib/lib:-L$LIBS/libpng/libs
+PATH=$LIBS/mpich/bin:$PATH ; export PATH
+export LD_LIBRARY_PATH=$LIBS/mpich/lib:$LD_LIBRARY_PATH
 export NCARG_ROOT=/usr
 export JASPERINC=$BASE_PATH/jasper
 export JASPERLIB=$BASE_PATH/jasper
 export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 export NCARG_ROOT=/usr
-export HDF5=$BASE_PATH/libs/hdf5
+export HDF5=$LIBS/hdf5
 #source /fsx/intel/impi/2019.6.166/intel64/bin/mpivars.sh -arch intel64 -platform linux
 ulimit -s unlimited
 ulimit -n unlimited

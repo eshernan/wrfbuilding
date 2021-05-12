@@ -3,23 +3,23 @@
 # Colombia- Ituango - La Mojana
 # Variables de entorno
 
-export BASE_PATH=/global/scratch/users/ejhernandezb/
-export BASE_INSTALLER=/global/home/users/ejhernandezb/installer/
-export LIBRARY_PATH=$BASE_PATH/libs/netcdf/lib:$LIBRARY_PATH
-export CPATH=$BASE_PATH/libs/netcdf/lib:$CPATH
-export CPPFLAGS=-I$BASE_PATH/libs/netcdf/include:-I$BASE_PATH/libs/hdf5/include:-I$BASE_PATH/libs/zlib/include:-I$BASE_PATH/libs/libpng/include
-export LDFLAGS=-L$BASE_PATH/libs/netcdf/lib:-L$BASE_PATH/libs/hdf5/lib:-L$BASE_PATH/libs/zlib/lib:-L$BASE_PATH/libs/libpng/libs
-export LD_LIBRARY_PATH=$BASE_PATH/libs/mpich/lib:$LD_LIBRARY_PATH
+source ../setup_env.sh
+BASE_PATH=$SHARED
+export LIBRARY_PATH=$LIBS/netcdf/lib:$LIBRARY_PATH
+export CPATH=$LIBS/netcdf/lib:$CPATH
+export CPPFLAGS=-I$LIBS/netcdf/include:-I$LIBS/hdf5/include:-I$LIBS/zlib/include:-I$LIBS/libpng/include
+export LDFLAGS=-L$LIBS/netcdf/lib:-L$LIBS/hdf5/lib:-L$LIBS/zlib/lib:-L$LIBS/libpng/libs
+export LD_LIBRARY_PATH=$LIBS/mpich/lib:$LD_LIBRARY_PATH
 export NCARG_ROOT=/usr
 export JASPERINC=$BASE_PATH/jasper
-export NETCDF=$BASE_PATH/libs/netcdf
+export NETCDF=$LIBS/netcdf
 export JASPERLIB=$BASE_PATH/jasper
 export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 export NCARG_ROOT=/usr
-export HDF5=$BASE_PATH/libs/hdf5
-export PHDF5=$BASE_PATH/libs/hdf5
-export LD_LIBRARY_PATH=$BASE_PATH/libs/netcdf/lib:$BASE_PATH/libs/hdf5/lib/:$BASE_PATH/libs/pnetcdf/lib:$BASE_PATH/libs/mpich/lib:$BASE_PATH/libs/zlib/lib
-export PATH=$PATH:$BASE_PATH/libs/netcdf/bin:$BASE_PATH/libs/mpich/bin
+export HDF5=$LIBS/hdf5
+export PHDF5=$LIBS/hdf5
+export LD_LIBRARY_PATH=$LIBS/netcdf/lib:$LIBS/hdf5/lib/:$LIBS/pnetcdf/lib:$LIBS/mpich/lib:$LIBS/zlib/lib
+export PATH=$PATH:$LIBS/netcdf/bin:$LIBS/mpich/bin
 ulimit -s unlimited
 ulimit -n unlimited
 #Configuring the Domain directory
