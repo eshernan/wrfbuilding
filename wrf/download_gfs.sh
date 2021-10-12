@@ -30,6 +30,8 @@ mkdir -p $dirgfs
 
 # Definition of forecast cycle and forecast hours
 FCY='00'
+# Definition of Level 
+GFS_PLEVEL='p25'
 # Using 7 days of operational data 7 days * 4 periods of day  * 6 hours = 168
 fhrs=`echo {000..169..6}`
 #fhrs='000 003 006'
