@@ -31,7 +31,7 @@ mkdir -p $dirgfs
 # Definition of forecast cycle and forecast hours
 FCY='00'
 # Using 7 days of operational data 7 days * 4 periods of day  * 6 hours = 168
-fhrs=`echo {000..169..6}'
+fhrs=`echo {000..169..6}`
 #fhrs='000 003 006'
 #fhrs='000 003 006 009 012 015 018 021 024 027 030 033 036 039 042 045 048 051 054 057 060 063 066 069 072 075 078 081 084 087 090 093 096 099 102 105 108 111 114 117 120'
 
