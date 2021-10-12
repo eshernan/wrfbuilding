@@ -10,7 +10,7 @@ cd $SHARED/domains/$DOMAIN_NAME/$GFS_DATA
 ## D A T E  #################################################################
 ##
 if [ "$1" = help ] ; then
-    echo "usage: $0 [HHHHMMGG] date of GFS run to be downloaded (last month only)"
+    echo "usage: $0 [YYYYMMDD] date of GFS run to be downloaded (last month only)"
     return
 fi
 if [ "$1" != "" ] ; then
