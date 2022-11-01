@@ -1,4 +1,4 @@
-export SHARED=/Users/awseste/source/wrf
+export SHARED=/home/eshernan/projects/WRF/V4/
 export LIBS=$SHARED/libs
 export INSTALLERS=$SHARED/installer
 export INSTALLER_PATH=$INSTALLERS
