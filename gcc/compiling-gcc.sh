@@ -58,7 +58,7 @@ make install
 cd $INSTALLERS
 echo "Compiling netcdf-fortran ###########################"
 cd netcdf-f*
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SHARED/libs/netcdf/lib CPPFLAGS="-I$SHARED/libs/hdf5/include/ -I$SHARED/libs/zlib/include/ -I$SHARED/libs/amd/netcdf/include" LDFLAGS="-L$SHARED/libs/hdf5/lib/ -L$SHARED/libs/netcdf/lib" ./configure --prefix=$SHARED/libs/amd/netcdf --disable-shared
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SHARED/libs/netcdf/lib CPPFLAGS="-I$SHARED/libs/hdf5/include/ -I$SHARED/libs/zlib/include/ -I$SHARED/libs/netcdf/include" LDFLAGS="-L$SHARED/libs/hdf5/lib/ -L$SHARED/libs/netcdf/lib" ./configure --prefix=$SHARED/libs/amd/netcdf --disable-shared
 make
 make install
 cd $INSTALLERS
@@ -73,3 +73,4 @@ export PHDF5=$SHARED/libs/hdf5
 export JASPERLIB=$SHARED/libs/jasper/lib
 export JASPERINC=$SHARED/libs/jasper/include
 export PATH=$PATH:$SHARED/libs/netcdf/bin/
+export WRFIO_NCD_LARGE_FILE_SUPPORT=1
