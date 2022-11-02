@@ -38,6 +38,9 @@ export  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SHARED/libs/mpich/lib
 export PATH=$PATH:$SHARED/libs/mpich/bin
 echo "Compiling hdf5 ###########################"
 cd hdf5*
+export CC=mpicc
+export FC=mpif90
+export 
 ./configure --prefix=$SHARED/libs/hdf5 --enable-parallel --enable-fortran --enable-shared
 make -j 8
 make install
@@ -49,13 +52,13 @@ make install
 cd $INSTALLERS
 echo "Compiling netcdf-c ###########################"
 cd netcdf-c*
-CPPFLAGS="-I$SHARED/libs/hdf5/include/ -I$SHARED/libs/mpich/include -I$SHARED/libs/pnetcdf/include" LDFLAGS="-L$SHARED/libs/hdf5/lib/ LDFLAGS="-L$SHARED/libs/zlib/lib/ -L$SHARED/libs/pnetcdf/lib" ./configure --prefix=$SHARED/libs/amd/netcdf --enable-netcdf-4 --enable-pnetcdf
+CPPFLAGS="-I$SHARED/libs/hdf5/include -I$SHARED/libs/mpich/include -I$SHARED/libs/pnetcdf/include" LDFLAGS="-L$SHARED/libs/hdf5/lib/ -L$SHARED/libs/zlib/lib/ -L$SHARED/libs/pnetcdf/lib" ./configure --prefix=$SHARED/libs/netcdf --enable-netcdf-4 --enable-pnetcdf
 make
 make install
 cd $INSTALLERS
 echo "Compiling netcdf-fortran ###########################"
 cd netcdf-f*
-FC="mpif90 -f90=flang" LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SHARED/libs/amd/netcdf/lib CPPFLAGS="-I$SHARED/libs/hdf5/include/ -I$SHARED/libs/amd/netcdf/include" LDFLAGS="-L$SHARED/libs/hdf5/lib/ -L$SHARED/libs/netcdf/lib" ./configure --prefix=$SHARED/libs/amd/netcdf --disable-shared
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SHARED/libs/netcdf/lib CPPFLAGS="-I$SHARED/libs/hdf5/include/ -I$SHARED/libs/zlib/include/ -I$SHARED/libs/amd/netcdf/include" LDFLAGS="-L$SHARED/libs/hdf5/lib/ -L$SHARED/libs/netcdf/lib" ./configure --prefix=$SHARED/libs/amd/netcdf --disable-shared
 make
 make install
 cd $INSTALLERS
@@ -64,9 +67,9 @@ cd papi
 make
 make install
 cd $INSTALLERS
-export NETCDF=$SHARED/libs/amd/netcdf/
+export NETCDF=$SHARED/libs/netcdf/
 export HDF5=$SHARED/libs/hdf5
 export PHDF5=$SHARED/libs/hdf5
 export JASPERLIB=$SHARED/libs/jasper/lib
 export JASPERINC=$SHARED/libs/jasper/include
-export PATH=$PATH:$SHARED/libs/amd/netcdf/bin/
+export PATH=$PATH:$SHARED/libs/netcdf/bin/
