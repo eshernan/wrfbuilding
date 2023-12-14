@@ -1,8 +1,10 @@
 #!/bin/bash
 #source ../download.sh
-SHARED=/home/ehernandez/WRF_BASE
+source ~/intel/oneapi/setvars.sh
+BASE=/home/ehernandez/WRF
+SHARED=$BASE/SHARED
 LIBS=$SHARED/libs
-INSTALLERS=$SHARED/installer
+INSTALLERS=$BASE/installer
 export SHARED INSTALLERS
 #for Intel Cluster Compilers
 export CC=icc
@@ -13,13 +15,12 @@ export CXX=icpc
 # export CC=gcc
 # export FC=gfortran
 # export CXX=g++
-source ~/.bash_intel20
 cd $INSTALLERS
 echo "-------------------------------------------------"
 echo "----------- Compiling ZLIB  ---------------------"
 echo "-------------------------------------------------"
 
-cd zlib*
+cd zlib-1.2.7
 ./configure --prefix=$LIBS/zlib
 make
 make install
@@ -28,7 +29,7 @@ echo "-------------------------------------------------"
 echo "----------- Compiling  LIBPNG  ------------------"
 echo "-------------------------------------------------"
 
-cd libpng*
+cd libpng-1.2.50
 ./configure --prefix=$LIBS/libpng #--build=arm
 make
 make install
@@ -37,7 +38,7 @@ echo "-------------------------------------------------"
 echo "----------- Compiling JASPER  -------------------"
 echo "-------------------------------------------------"
 
-cd jasper*
+cd jasper-1.900.1
 ./configure --prefix=$LIBS/jasper
 make
 make install
@@ -61,7 +62,7 @@ echo "-------------------------------------------------"
 echo "----------- Compiling HDF5  ---------------------"
 echo "-------------------------------------------------"
 
- cd hdf5*
+ cd hdf5-1.12.0
 ./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran  --enable-cxx  --enable-optimization=high --with-default-api-version=v18
 make
 make install
@@ -70,7 +71,7 @@ echo "-------------------------------------------------"
 echo "----------- Compiling PNETCDF  ------------------"
 echo "-------------------------------------------------"
 
-cd pnetcdf*
+cd pnetcdf-1.12.2
 CPPFLAGS="-I$LIBS/hdf5/include/" LDFLAGS=-L$LIBS/hdf5/lib/ ./configure --prefix=$LIBS/pnetcdf  --enable-shared --enable-static
 make
 make install
@@ -78,7 +79,7 @@ cd ..
 echo "-------------------------------------------------"
 echo "----------- Compiling NETCDF-C  -----------------"
 echo "-------------------------------------------------"
-cd netcdf-c*
+cd netcdf-c-4.9.0
 CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/pnetcdf/include" LDFLAGS="-L$LIBS/hdf5/lib/ -L$LIBS/pnetcdf/lib" ./configure --prefix=$LIBS/netcdf --enable-netcdf-4 --enable-pnetcdf -enable-shared
 make
 make install
@@ -88,7 +89,7 @@ echo "-------------------------------------------------"
 echo "----------- Compiling NETCDF-FORTRAN  -----------"
 echo "-------------------------------------------------"
 
-cd netcdf-f*
+cd netcdf-fortran-4.6.0
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBS/netcdf/lib CPPFLAGS="-I$LIBS/hdf5/include/ -I$LIBS/netcdf/include" LDFLAGS="-L$LIBS/hdf5/lib/ -L$LIBS/netcdf/lib" ./configure --prefix=$LIBS/netcdf --enable-shared 
 make
 make install
