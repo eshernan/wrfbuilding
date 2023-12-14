@@ -63,7 +63,7 @@ echo "----------- Compiling HDF5  ---------------------"
 echo "-------------------------------------------------"
 
  cd hdf5-1.12.0
-./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran  --enable-cxx  --enable-optimization=high --with-default-api-version=v18
+./configure --prefix=$LIBS/hdf5 --enable-parallel --enable-fortran  --enable-optimization=high --with-default-api-version=v18
 make
 make install
 cd ..
