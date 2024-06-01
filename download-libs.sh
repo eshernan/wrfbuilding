@@ -12,13 +12,13 @@ wget --no-check-certificate https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile
 wget --no-check-certificate https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/zlib-1.2.11.tar.gz
 #wget --no-check-certificate https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz
 #git clone https://bitbucket.org/icl/papi.git
-tar -zxvf netcdf-c-4.9.0.tar.gz
-tar -zxvf netcdf-fortran-4.6.0.tar.gz
-tar -zxvf hdf5-1.12.0.tar.gz
+tar -zxvf netcdf-c-4.9.2.tar.gz
+tar -zxvf netcdf-fortran-4.6.1.tar.gz
+tar -zxvf hdf5-1.14.4.tar.gz
 tar -zxvf jasper-1.900.1.tar.gz 
 tar -zxvf libpng-1.2.50.tar.gz
-tar -zxvf zlib-1.2.7.tar.gz
-tar -zxvf pnetcdf-1.12.2.tar.gz
+tar -zxvf zlib-1.2.11.tar.gz
+tar -zxvf pnetcdf-1.13.0.tar.gz
 #tar -zxvf mpich-3.0.4.tar.gz
 echo " .... required libs download sucessful ...."
 cd $SHARED
